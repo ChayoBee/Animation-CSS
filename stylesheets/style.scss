@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+$movil: '(max-width: 576px)';
+$tablet: '()';
+$pc: '(min-width: 992px)';
+
+@mixin bg ($bg, $g){
+    background-color: $bg;
+    grid-area: $g;
+}
+
+@mixin font ($f) {
+    font-family: 'Montserrat', sans-serif;
+    font-size: $f;
+}
+
+@mixin flex ($d, $j, $a){
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin img ($img) {
+    width: 100%;
+    background-image: $img;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.container {
+    @media #{$movil} {
+        display: grid;
+        grid-template-areas: 
+        'Nav'
+        'looking'
+        'body'
+        'footer'
+        ;
+        grid-template-rows: 100px 100px 1fr 100px;
+    }
+
+    header {
+        @include bg(lightgreen, nav);
+        nav {
+            @include flex(flex, space-between, none);
+            width: 100%;
+            padding-bottom: 20px;
+            .logo {
+                display: flex;
+                height: 80px;
+                padding-top: 20px;
+                padding-left: 10px;
+            }
+            .icon {
+                @include flex(flex, none, center);
+                padding-right: 70px;
+                padding-top: 15px;
+                font-size: 30px;
+                cursor: pointer;
+            }
+            .menu {
+                display: none;
+            }
+        }
+    }
+
+    aside {
+        @include bg(lightgray, looking);
+        @include flex(flex, center, center);
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        .filtro {
+            @include font(18px);
+        }
+        .select {
+            button {
+                @include flex(flex, space-between, center);
+                height: 30px;
+                width: 250px;
+                padding-left: 20px;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    main {
+        @include bg(purple, body);
+        @include flex(flex, space-around, center);
+        padding: 15px;
+        gap: 13px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        .cards {
+            width: 200px;
+            height: 350px;
+            overflow: hidden;
+            background-color: white;
+            border: 1px solid lightgray;
+            .image {
+                .img1 {
+                    @include img();
+                    height: 170px;
+                }
+            }
+            .Ctitle {
+                @include font(14px);
+                text-align: center;
+                padding-top: 10px;
+            }
+            .Cinfo {
+                @include font(18px);
+                text-align: center;
+                padding-top: 15px;
+            }
+            .Cfooter {
+                @include flex(flex, center, center);
+                margin-top: 10px;
+                padding-top: 15px;
+                .boton {
+                    @include font(20px);
+                    height: 50px;
+                    width: 200px;
+                    cursor: pointer;
+                    color: black;
+                    border: 2px solid black;
+                    border-radius: 4px;
+                }
+            }
+        }
+        .Csfooter {
+            @include flex(flex, center, center);
+            button {
+                @include font(15px);
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    footer {
+        @include bg(hotpink, footer);
+        @include flex(flex, center, center);
+        flex-direction: column;
+        pad: 20px;
+        .redes {
+            font-size: 25px;
+            @include flex(flex, space-around, center);
+            gap: 10px;
+        }
+        .copyright {
+            @include font(15px);
+            padding: 12px;
+        }
+    }
+
+    @media #{$pc} {
+        display: grid;
+        grid-template-areas:
+        'nav looking looking looking'
+        'nav body body body'
+        'nav body body body'
+        'footer footer footer footer'
+        ;
+        grid-template-columns: 1fr 10fr;
+
+        header {
+            nav {
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                gap: 30px;
+                .logo {
+                    flex-direction: column;
+                    width: 230px;
+                }
+                .menu {
+                    @include flex(flex, space-around, center);
+                    @include font(20px);
+                    flex-direction: column;
+                    gap: 15px;
+                    list-style: none;
+                    padding-right: 5px;
+                    padding-top: 5px;
+                    cursor: pointer;
+                }
+                .icon {
+                    display: none;
+                }
+            }
+        }
+
+        main {
+            flex-direction: row;
+            gap: 50px;
+            .cards {
+                width: 250px;
+                height: 350px;
+            }
+        }
+
+        footer {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
+}
