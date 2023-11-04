@@ -3,4 +3,196 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@media (max-width: 576px) {
+  .container {
+    display: grid;
+    grid-template-areas: "nav" "looking" "body" "footer";
+    grid-template-rows: 100px 200px 1fr 100px;
+  }
+}
+.container header {
+  background-color: #CC0000;
+  grid-area: nav;
+  border-bottom: 2px solid black;
+}
+.container header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  width: 100%;
+  padding-bottom: 30px;
+}
+.container header nav .logo {
+  display: flex;
+  height: 80px;
+  padding-left: 10px;
+  padding-top: 15px;
+}
+.container header nav .icon {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  padding-right: 50px;
+  padding-top: 10px;
+  font-size: 40px;
+  cursor: pointer;
+}
+.container header nav .menu {
+  display: none;
+}
+.container aside {
+  background-color: #EBEBED;
+  grid-area: looking;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+.container aside .filtro {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+.container aside .select {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  height: 30px;
+  width: 180px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+.container main {
+  background-color: none;
+  grid-area: body;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(../assets/img/bg-movil.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+  gap: 13px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.container main .cards {
+  width: 200px;
+  height: 350px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+.container main .cards .image .img1 {
+  width: 100%;
+  background-image: url(../assets/img/Meowth.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 170px;
+}
+.container main .cards .Ctitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 10px;
+}
+.container main .cards .Cinfo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  text-align: start;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+.container main .cards .Cfooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  height: 50px;
+  width: 200px;
+  color: black;
+  border-top: 1px solid black;
+}
+.container main .Csfooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .Csfooter button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.container footer {
+  background-color: hotpink;
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.container footer .redes {
+  font-size: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+.container footer .copyright {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  padding: 12px;
+}
+@media (min-width: 992px) {
+  .container {
+    grid-template-areas: "nav looking looking looking" "nav body body body" "nav body body body" "footer footer footer footer";
+    grid-template-columns: 1fr 10fr;
+  }
+  .container header nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 30px;
+  }
+  .container header nav .logo {
+    flex-direction: column;
+    width: 230px;
+  }
+  .container header nav .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    padding-right: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+  .container header nav .icon {
+    display: none;
+  }
+  .container main {
+    flex-direction: row;
+    gap: 50px;
+  }
+  .container main .cards {
+    width: 250px;
+    height: 350px;
+  }
+  .container footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }/*# sourceMappingURL=style.css.map */

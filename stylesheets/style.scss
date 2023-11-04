@@ -37,31 +37,32 @@ $pc: '(min-width: 992px)';
     @media #{$movil} {
         display: grid;
         grid-template-areas: 
-        'Nav'
+        'nav'
         'looking'
         'body'
         'footer'
         ;
-        grid-template-rows: 100px 100px 1fr 100px;
+        grid-template-rows: 100px 200px 1fr 100px;
     }
 
     header {
-        @include bg(lightgreen, nav);
+        @include bg(#CC0000, nav);
+        border-bottom: 2px solid black;
         nav {
             @include flex(flex, space-between, none);
             width: 100%;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             .logo {
                 display: flex;
                 height: 80px;
-                padding-top: 20px;
                 padding-left: 10px;
+                padding-top: 15px;
             }
             .icon {
                 @include flex(flex, none, center);
-                padding-right: 70px;
-                padding-top: 15px;
-                font-size: 30px;
+                padding-right: 50px;
+                padding-top: 10px;
+                font-size: 40px;
                 cursor: pointer;
             }
             .menu {
@@ -71,7 +72,7 @@ $pc: '(min-width: 992px)';
     }
 
     aside {
-        @include bg(lightgray, looking);
+        @include bg(#EBEBED, looking);
         @include flex(flex, center, center);
         flex-direction: column;
         gap: 15px;
@@ -80,19 +81,20 @@ $pc: '(min-width: 992px)';
             @include font(18px);
         }
         .select {
-            button {
-                @include flex(flex, space-between, center);
-                height: 30px;
-                width: 250px;
-                padding-left: 20px;
-                padding-right: 10px;
-            }
+            @include flex(flex, none, center);
+            height: 30px;
+            width: 180px;
+            padding-left: 10px;
+            padding-right: 15px;
         }
     }
 
     main {
-        @include bg(purple, body);
+        @include bg(none, body);
         @include flex(flex, space-around, center);
+        background-image: url(../assets/img/bg-movil.png);
+        background-size: cover;
+        background-repeat: no-repeat;
         padding: 15px;
         gap: 13px;
         flex-wrap: wrap;
@@ -105,7 +107,7 @@ $pc: '(min-width: 992px)';
             border: 1px solid lightgray;
             .image {
                 .img1 {
-                    @include img();
+                    @include img(url(../assets/img/Meowth.png));
                     height: 170px;
                 }
             }
@@ -115,23 +117,20 @@ $pc: '(min-width: 992px)';
                 padding-top: 10px;
             }
             .Cinfo {
-                @include font(18px);
-                text-align: center;
-                padding-top: 15px;
+                @include font(14px);
+                text-align: start;
+                padding-top: 10px;
+                padding-left: 5px;
             }
             .Cfooter {
                 @include flex(flex, center, center);
-                margin-top: 10px;
-                padding-top: 15px;
-                .boton {
-                    @include font(20px);
-                    height: 50px;
-                    width: 200px;
-                    cursor: pointer;
-                    color: black;
-                    border: 2px solid black;
-                    border-radius: 4px;
-                }
+                margin-top: 5px;
+                padding: 5px;
+                @include font(20px);
+                height: 50px;
+                width: 200px;
+                color: black;
+                border-top: 1px solid black;
             }
         }
         .Csfooter {
@@ -149,7 +148,7 @@ $pc: '(min-width: 992px)';
         @include bg(hotpink, footer);
         @include flex(flex, center, center);
         flex-direction: column;
-        pad: 20px;
+        padding: 20px;
         .redes {
             font-size: 25px;
             @include flex(flex, space-around, center);
@@ -162,7 +161,6 @@ $pc: '(min-width: 992px)';
     }
 
     @media #{$pc} {
-        display: grid;
         grid-template-areas:
         'nav looking looking looking'
         'nav body body body'
