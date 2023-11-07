@@ -33,7 +33,6 @@ $pc: '(min-width: 992px)';
     background-repeat: no-repeat;
 }
 
-//@media #{$movil} {
 .container {
         display: grid;
         grid-template-areas: 
@@ -42,8 +41,7 @@ $pc: '(min-width: 992px)';
         'body'
         'footer'
         ;
-        grid-template-rows: 100px 200px 1fr 100px;
-  //  }
+        grid-template-rows: 100px 150px 1fr 100px;
 
     header {
         @include bg(#CC0000, nav);
@@ -86,6 +84,9 @@ $pc: '(min-width: 992px)';
             padding-left: 10px;
             padding-right: 15px;
         }
+        img {
+            display: none;
+        }
     }
 
     main {
@@ -98,18 +99,18 @@ $pc: '(min-width: 992px)';
         gap: 13px;
         flex-wrap: wrap;
         flex-direction: column;
+        grid-auto-flow: dense;
         .cards {
-            width: 400px;
-            height: 450px;
+            @include flex(flex, center, center);
             overflow: hidden;
             background-color: white;
             border: 1px solid lightgray;
-            .image {
-                .img1 {
-  //                  @include img(url(../assets/img/Meowth.png));
-                }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
-            .Ctitle {
+ /*           .Ctitle {
                 @include font(14px);
                 text-align: center;
                 padding-top: 10px;
@@ -129,7 +130,7 @@ $pc: '(min-width: 992px)';
                 color: black;
                 border-top: 1px solid black;
             }
-        }
+        }           */
         .Csfooter {
             @include flex(flex, center, center);
             button {
@@ -165,8 +166,16 @@ $pc: '(min-width: 992px)';
         'footer footer footer footer'
         ;
         grid-template-columns: 1fr 10fr;
+        grid-template-rows: 1fr 5fr 1fr;
 
         header {
+            border-bottom: none;
+            border-right: 2px solid black;
+            background-color: #3C1A18;
+            background-image: url(../assets/img/sidebar.jpg);
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
             nav {
                 display: flex;
                 flex-direction: column;
@@ -184,11 +193,30 @@ $pc: '(min-width: 992px)';
                     list-style: none;
                     padding-right: 5px;
                     padding-top: 5px;
+                    color: white;
                     cursor: pointer;
                 }
                 .icon {
                     display: none;
                 }
+            }
+        }
+
+        aside {
+            @include flex(flex, space-between, center);
+            padding-bottom: 20px;
+            .logo2 {
+                @include flex(flex, flex-start, center);
+                img {
+                    height: 150px;
+                    padding: 20px;
+                    object-fit: cover;
+                }
+            }
+            .categoria {
+                @include flex(flex, flex-end, center);
+                flex-direction: column;
+                gap: 5px;
             }
         }
 
@@ -200,8 +228,11 @@ $pc: '(min-width: 992px)';
             flex-direction: row;
             gap: 50px;
             .cards {
-                width: 250px;
+                width: 300px;
                 height: 350px;
+            }
+            .Csfooter {
+                @include flex(flex, center, end);
             }
         }
 

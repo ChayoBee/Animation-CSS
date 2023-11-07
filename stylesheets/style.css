@@ -5,12 +5,10 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 576px) {
-  .container {
-    display: grid;
-    grid-template-areas: "nav" "looking" "body" "footer";
-    grid-template-rows: 100px 200px 1fr 100px;
-  }
+.container {
+  display: grid;
+  grid-template-areas: "nav" "looking" "body" "footer";
+  grid-template-rows: 100px 150px 1fr 100px;
 }
 .container header {
   background-color: #CC0000;
@@ -50,7 +48,6 @@
   align-items: center;
   flex-direction: column;
   gap: 15px;
-  padding: 20px;
 }
 .container aside .filtro {
   font-family: "Montserrat", sans-serif;
@@ -65,6 +62,9 @@
   padding-left: 10px;
   padding-right: 15px;
 }
+.container aside img {
+  display: none;
+}
 .container main {
   background-color: none;
   grid-area: body;
@@ -78,20 +78,21 @@
   gap: 13px;
   flex-wrap: wrap;
   flex-direction: column;
+  grid-auto-flow: dense;
 }
 .container main .cards {
-  width: 200px;
-  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   background-color: white;
   border: 1px solid lightgray;
 }
-.container main .cards .image .img1 {
+.container main .cards img {
   width: 100%;
-  background-image: url(../assets/img/Meowth.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 170px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .container main .cards .Ctitle {
   font-family: "Montserrat", sans-serif;
@@ -115,7 +116,6 @@
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   height: 50px;
-  width: 200px;
   color: black;
   border-top: 1px solid black;
 }
@@ -156,6 +156,16 @@
   .container {
     grid-template-areas: "nav looking looking looking" "nav body body body" "nav body body body" "footer footer footer footer";
     grid-template-columns: 1fr 10fr;
+    grid-template-rows: 1fr 5fr 1fr;
+  }
+  .container header {
+    border-bottom: none;
+    border-right: 2px solid black;
+    background-color: #3C1A18;
+    background-image: url(../assets/img/sidebar.jpg);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   .container header nav {
     display: flex;
@@ -178,18 +188,53 @@
     list-style: none;
     padding-right: 5px;
     padding-top: 5px;
+    color: white;
     cursor: pointer;
   }
   .container header nav .icon {
     display: none;
   }
+  .container aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .container aside .logo2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .container aside .logo2 img {
+    height: 150px;
+    padding: 20px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .container aside .categoria {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
   .container main {
+    background-color: none;
+    grid-area: body;
+    background-image: url(../assets/img/bg-pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     flex-direction: row;
     gap: 50px;
   }
   .container main .cards {
-    width: 250px;
+    width: 300px;
     height: 350px;
+  }
+  .container main .Csfooter {
+    display: flex;
+    justify-content: center;
+    align-items: end;
   }
   .container footer {
     padding-top: 50px;
