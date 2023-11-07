@@ -33,8 +33,8 @@ $pc: '(min-width: 992px)';
     background-repeat: no-repeat;
 }
 
+//@media #{$movil} {
 .container {
-    @media #{$movil} {
         display: grid;
         grid-template-areas: 
         'nav'
@@ -43,7 +43,7 @@ $pc: '(min-width: 992px)';
         'footer'
         ;
         grid-template-rows: 100px 200px 1fr 100px;
-    }
+  //  }
 
     header {
         @include bg(#CC0000, nav);
@@ -76,7 +76,6 @@ $pc: '(min-width: 992px)';
         @include flex(flex, center, center);
         flex-direction: column;
         gap: 15px;
-        padding: 20px;
         .filtro {
             @include font(18px);
         }
@@ -100,15 +99,14 @@ $pc: '(min-width: 992px)';
         flex-wrap: wrap;
         flex-direction: column;
         .cards {
-            width: 200px;
-            height: 350px;
+            width: 400px;
+            height: 450px;
             overflow: hidden;
             background-color: white;
             border: 1px solid lightgray;
             .image {
                 .img1 {
-                    @include img(url(../assets/img/Meowth.png));
-                    height: 170px;
+  //                  @include img(url(../assets/img/Meowth.png));
                 }
             }
             .Ctitle {
@@ -128,7 +126,6 @@ $pc: '(min-width: 992px)';
                 padding: 5px;
                 @include font(20px);
                 height: 50px;
-                width: 200px;
                 color: black;
                 border-top: 1px solid black;
             }
@@ -196,6 +193,10 @@ $pc: '(min-width: 992px)';
         }
 
         main {
+            @include bg(none, body);
+            background-image: url(../assets/img/bg-pc.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
             flex-direction: row;
             gap: 50px;
             .cards {
