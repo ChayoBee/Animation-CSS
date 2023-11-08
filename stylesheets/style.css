@@ -106,6 +106,9 @@
   height: 400px;
   border-radius: 50%;
 }
+.container main .cards .pokeball:hover {
+  box-shadow: 0 0 40px rgb(245, 242, 52);
+}
 .container main .cards .pokeball:hover .Ccontainer {
   bottom: 0;
 }
@@ -188,9 +191,9 @@
 }
 @media (min-width: 992px) {
   .container {
-    grid-template-areas: "nav looking looking looking" "nav body body body" "nav body body body" "footer footer footer footer";
+    grid-template-areas: "nav looking looking looking" "nav body body body" "footer footer footer footer";
     grid-template-columns: 1fr 10fr;
-    grid-template-rows: 150px 5fr 5fr 100px;
+    grid-template-rows: 150px auto 100px;
   }
   .container header {
     border-bottom: none;
@@ -234,6 +237,8 @@
     align-items: center;
     flex-direction: row;
     padding: 20px;
+    background-color: #CC0000;
+    border-bottom: 2px solid black;
   }
   .container aside .logo2 {
     display: flex;
@@ -252,18 +257,20 @@
     align-items: center;
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
+    color: white;
   }
   .container aside .categoria {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    color: white;
     gap: 5px;
   }
   .container main {
     background-color: none;
     grid-area: body;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(../assets/img/bg-pc.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -276,6 +283,7 @@
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+    flex-wrap: wrap;
   }
   .container main .Csfooter {
     display: flex;
@@ -285,5 +293,7 @@
   .container footer {
     padding-top: 50px;
     padding-bottom: 50px;
+    background-color: #EBEBED;
+    border-top: 2px solid black;
   }
 }/*# sourceMappingURL=style.css.map */
