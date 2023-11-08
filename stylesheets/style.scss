@@ -33,6 +33,16 @@ $pc: '(min-width: 992px)';
     background-repeat: no-repeat;
 }
 
+@keyframes volteo {
+    from {
+        transform: rotateY('0deg');
+    }
+
+    to {
+        transform: rotateY('180deg');
+    }
+}
+
 .container {
         display: grid;
         grid-template-areas: 
@@ -102,35 +112,48 @@ $pc: '(min-width: 992px)';
         grid-auto-flow: dense;
         .cards {
             @include flex(flex, center, center);
-            overflow: hidden;
-            background-color: white;
-            border: 1px solid lightgray;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
- /*           .Ctitle {
-                @include font(14px);
-                text-align: center;
-                padding-top: 10px;
-            }
-            .Cinfo {
-                @include font(14px);
-                text-align: start;
-                padding-top: 10px;
-                padding-left: 5px;
-            }
-            .Cfooter {
+            .pokeball {
+                background-color: white;
+                border: 1px solid lightgray;
+                overflow: hidden;
                 @include flex(flex, center, center);
-                margin-top: 5px;
-                padding: 5px;
-                @include font(20px);
-                height: 50px;
-                color: black;
-                border-top: 1px solid black;
+                position: relative;
+                width: 300px;
+                height: 300px;
+                &:hover .Ccontainer {
+                    bottom: 0;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .Ccontainer {
+                    position: absolute;
+                    bottom: -100px;
+                    transition: all 700ms ease;
+                    background-color: #ffffff90;
+                    width: 100%;
+                    .Ctitle {
+                        @include font(14px);
+                        text-align: center;
+                        padding-top: 10px;
+                    }
+                    .Cfooter {
+                        @include flex(flex, center, center);
+                        margin-top: 5px;
+                        padding: 5px;
+                        @include font(20px);
+                        height: 50px;
+                        color: black;
+                        border-top: 1px solid black;
+                        img {
+                            width: 20px;
+                        }
+                    }
+                }
             }
-        }           */
+        }
         .Csfooter {
             @include flex(flex, center, center);
             button {
@@ -157,7 +180,6 @@ $pc: '(min-width: 992px)';
             padding: 12px;
         }
     }
-
     @media #{$pc} {
         grid-template-areas:
         'nav looking looking looking'
@@ -166,7 +188,7 @@ $pc: '(min-width: 992px)';
         'footer footer footer footer'
         ;
         grid-template-columns: 1fr 10fr;
-        grid-template-rows: 1fr 5fr 1fr;
+        grid-template-rows: 150px 5fr 5fr 100px;
 
         header {
             border-bottom: none;
@@ -203,14 +225,15 @@ $pc: '(min-width: 992px)';
         }
 
         aside {
-            @include flex(flex, space-between, center);
-            padding-bottom: 20px;
+            @include flex(flex, space-around, center);
+            flex-direction: row;
+            padding: 20px;
             .logo2 {
                 @include flex(flex, flex-start, center);
                 img {
                     height: 150px;
-                    padding: 20px;
                     object-fit: cover;
+                    display: block;
                 }
             }
             .categoria {
@@ -222,14 +245,16 @@ $pc: '(min-width: 992px)';
 
         main {
             @include bg(none, body);
+            height: 100vh;
             background-image: url(../assets/img/bg-pc.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             flex-direction: row;
             gap: 50px;
             .cards {
-                width: 300px;
-                height: 350px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
             .Csfooter {
                 @include flex(flex, center, end);
